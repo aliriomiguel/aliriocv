@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Alirio Aranguren
+                    Alirio Aranguren 
                 </div>
 
                 <div class="links">
