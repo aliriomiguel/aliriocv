@@ -5,7 +5,7 @@
         {{-- @foreach ($posts as $post) --}}
         <div class="card mt-4">
             <div class="card-body">
-                <table class="table table-striped text-nowrap">
+                <table class="table table-striped text-nowrap table-responsive-lg">
                     <thead>
                         <tr>
                             <th class="align-text-table">

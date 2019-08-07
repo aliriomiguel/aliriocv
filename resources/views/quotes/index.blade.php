@@ -4,7 +4,7 @@
         <h1>All Quotes</h1>
         <div class="card mt-4">
             <div class="card-body">
-                <table class="table table-striped text-nowrap">
+                <table class="table table-striped text-nowrap table-responsive-lg">
                     <thead>
                         <tr>
                             <th>
@@ -24,13 +24,11 @@
                             <td>
                                 <a href="{{route('quotes.show', $quote->id)}}">
                                     {{ str_limit($quote->quote, $limit = 40, $end = '...') }}
-                                    {{-- {{$about->about}} --}}    
                                 </a>
                             </td>
                             <td>
                                 <a>
-                                    {{-- {{ str_limit($quote->quote, $limit = 40, $end = '...') }} --}}
-                                    {{$quote->author}} {{$quote->id}}   
+                                    {{$quote->author}}
                                 </a>
                             </td>
                             <td>

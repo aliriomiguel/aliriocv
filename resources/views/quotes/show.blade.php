@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<div class="card">
+<div class="card mb-3">
     <div class="card-body">
         <h2>"{{$quote->quote}}"</h2>
         <p>

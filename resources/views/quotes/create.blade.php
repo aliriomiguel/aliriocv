@@ -19,7 +19,7 @@
         <input type="text" name="author" id="author" class="form-control">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-info">Add an Quote</button>
+        <button type="submit" class="btn btn-outline-info">Add a Quote</button>
     </div>
 </form>
 @endsection

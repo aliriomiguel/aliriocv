@@ -27,7 +27,7 @@
         <input name="author" id="author" class="form-control" value="{{$quote->author}}">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-info">Update post</button>
+        <button type="submit" class="btn btn-outline-info">Update quote</button>
     </div>
 </form>
 @endsection

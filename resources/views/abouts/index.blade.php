@@ -4,7 +4,7 @@
         <h1>All About Texts</h1>
         <div class="card mt-4">
             <div class="card-body">
-                <table class="table table-striped text-nowrap">
+                <table class="table table-striped text-nowrap table-responsive-lg">
                     <thead>
                         <tr>
                             <th>
