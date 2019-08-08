@@ -136,11 +136,14 @@
         @endauth --}}
     </div>
     {{-- end menu --}}
-    <div class="container">        
-        @yield('content')
+    <div class="container-fluid "> 
+        <div class="main container">
+                @yield('content')
+        </div>       
+        
     </div>
     {{-- footer --}}
-    <footer class="bg-dark text-white mt-4 p-4 text-center">        
+    <footer id="footer" class="bg-dark text-white mt-0 p-4 text-center">        
             All rights reserved Alirio Aranguren {{date('Y')}}
     </footer>
     

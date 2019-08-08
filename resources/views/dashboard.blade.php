@@ -5,9 +5,9 @@
         <h1>Dashboard</h1>
         <h2>Active Posts</h2>
         <h2>About Text</h2>
-        <h2>Services</h2>
+        {{-- <h2>Services</h2>
         <h2>Portfolios</h2>
-        <h2>Quotes</h2>
+        <h2>Quotes</h2> --}}
         
         {{-- <h1>All Posts</h1>
         @foreach ($posts as $post)

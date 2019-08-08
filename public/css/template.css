@@ -1,13 +1,25 @@
-
-footer{
-    position: relative;
-    bottom: 0;
-    width: 100%;   
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height: 100%;
 }
 .container{
     height:100%;
     min-height:100%;
     position:relative;
+}
+
+.main{
+    overflow:auto;
+    padding-bottom: 240px;
+}
+#footer{
+    position: relative;
+    height:130px;
+    clear:both;
+    width: 100%;   
 }
 .avatar{
     width: 2rem;
