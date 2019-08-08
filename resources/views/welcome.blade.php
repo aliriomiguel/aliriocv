@@ -135,6 +135,33 @@
                 </div>
             </section>
 
+            <section id="contact">
+                <div class="content text-center">
+                    <form action="{{route('contacts.store')}}"  method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="phone" name="phone" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Text</label>
+                            <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-outline-info"><i class="fas fa-envelope"></i> Send</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
             
 
             {{-- <div class="content">

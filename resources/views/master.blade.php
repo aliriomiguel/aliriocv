@@ -78,6 +78,9 @@
                             <a class="dropdown-item" href="{{route('quotes.create')}}">Add Quote</a>
                             </div>
                         </li>
+                        <li class="nav-item p-1">
+                            <a href="{{route('contacts.index')}}" class="btn btn-secondary"><i class="fas fa-envelope"></i></a>
+                        </li>
                         
                     </ul>
                     @auth
