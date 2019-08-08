@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
+use App\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -19,7 +21,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('posts.index', compact('posts'));
+        $users = User::all();
+        $categories = Category::all();
+        return view('posts.index', compact('posts','users','categories'));
         //
     }
 
@@ -94,6 +98,32 @@ class PostController extends Controller
         session()->flash('message','Your post have been updated');
         return redirect()->back();
         //
+    }
+
+    public function setFeatured($id){
+        $post = Post::find($id);
+
+        $post->featured = 1;
+        $saved = $post->save();
+        $status = 'featured';
+
+        return response()->json([
+            'success' => $saved,
+            'status'  => $status
+        ]);
+    }
+
+    public function unsetFeatured($id){
+        $post = Post::find($id);
+
+        $post->featured = 0;
+        $saved = $post->save();
+        $status = 'unfeatured';
+
+        return response()->json([
+            'success' => $saved,
+            'status'  => $status
+        ]);
     }
 
     /**
