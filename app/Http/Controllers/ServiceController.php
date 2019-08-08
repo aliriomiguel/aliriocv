@@ -91,6 +91,18 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
+        $service->name = $request->name;
+        $service->description = $request->description;
+        if($iconFile = $request->file('icon')){
+            $iconName = $iconFile->getClientOriginalName();
+            if($service->icon != $iconName || $iconName != null){
+                $service->icon = $iconName;
+                $iconFile->move(base_path().'/public/img/icons',$iconName);
+            }
+        }
+        $service->save();
+        session()->flash('message','Your service has been updated');
+        return redirect(route('services.index'));
         //
     }
 
@@ -102,6 +114,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        $service->delete();
+        return redirect(route('services.index'));
         //
     }
 }

@@ -14,7 +14,7 @@
         {{session()->get('message')}}
     </div>
 @endif
-<form action="{{route('services.update', $service->id)}}" method="post">
+<form action="{{route('services.update', $service->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
     
