@@ -105,11 +105,9 @@ class PostController extends Controller
 
         $post->featured = 1;
         $saved = $post->save();
-        $status = 'featured';
 
         return response()->json([
-            'success' => $saved,
-            'status'  => $status
+            'success' => $saved
         ]);
     }
 
@@ -118,11 +116,9 @@ class PostController extends Controller
 
         $post->featured = 0;
         $saved = $post->save();
-        $status = 'unfeatured';
 
         return response()->json([
-            'success' => $saved,
-            'status'  => $status
+            'success' => $saved
         ]);
     }
 

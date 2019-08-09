@@ -1,8 +1,8 @@
-function setFeatured(post_id,event){
+function setShowLanding(about_id,event){
     $.ajax({
         headers :{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type    : "POST",
-        url     : "/posts/"+post_id+"/setfeatured",
+        url     : "/abouts/"+about_id+"/showlanding",
         dataType: "json",
         success : function(response){
             if(response["accept"]!=1){
@@ -26,11 +26,11 @@ function setFeatured(post_id,event){
     }).done(function(){});
 }
 
-function unsetFeatured(post_id,event){
+function setHideLanding(about_id,event){
     $.ajax({
         headers :{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         type    : "POST",
-        url     : "/posts/"+post_id+"/unsetfeatured",
+        url     : "/abouts/"+about_id+"/hidelanding",
         dataType: "json",
         success : function(response){
             if(response["accept"]!=1){
@@ -56,11 +56,11 @@ function unsetFeatured(post_id,event){
 
 
 
-function featured(post_id, event){
-    if($('#switch'+post_id).is(':checked')){
-        setFeatured(post_id,event);
+function show_active(about_id, event){
+    if($('#switch-about'+about_id).is(':checked')){
+        setShowLanding(about_id,event);
     }
     else{
-        unsetFeatured(post_id,event);
+        setHideLanding(about_id,event);
     }
 }
