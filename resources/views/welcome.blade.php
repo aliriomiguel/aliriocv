@@ -136,7 +136,7 @@
             </section>
 
             <section id="contact">
-                <div class="content text-center">
+                <div class="content col-lg-8 mx-auto">
                     <form action="{{route('contacts.store')}}"  method="post">
                         @csrf
                         <div class="form-group">
@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Text</label>
-                            <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="content" id="content" cols="30" rows="5" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-info"><i class="fas fa-envelope"></i> Send</button>
