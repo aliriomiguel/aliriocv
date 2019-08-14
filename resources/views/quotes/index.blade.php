@@ -58,7 +58,7 @@
                 </table>
             </div>
         </div>
-        <div class="mt-4">
+        <div class="mt-4 d-flex justify-content-center">
             {{$quotes->links()}}
         </div>
 @endsection
