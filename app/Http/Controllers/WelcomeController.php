@@ -13,8 +13,9 @@ class WelcomeController extends Controller
     public static function index(){
         $posts = Post::all();
         $about = About::all();
+        $portfolio = Portfolio::all();
 
-        return view('welcome', compact('posts','about'));
+        return view('welcome', compact('posts','about','portfolio'));
     }
     //
 }
