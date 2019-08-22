@@ -30,6 +30,20 @@
         </div>
     </div>
     <div class="form-group">
+        <label>Picture 2</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture2" name="picture2">
+            <label class="custom-file-label" for="picture2">Choose File</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Picture 3</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture3" name="picture3">
+            <label class="custom-file-label" for="picture3">Choose File</label>
+        </div>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-outline-info">Add Portfolio Entry</button>
     </div>
 </form>

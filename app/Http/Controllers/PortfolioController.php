@@ -47,13 +47,21 @@ class PortfolioController extends Controller
         ]);
         $pictureFile = $request->file('picture');
         $pictureName = $pictureFile->getClientOriginalName();
+        $pictureFile2 = $request->file('picture2');
+        $pictureName2 = $pictureFile2->getClientOriginalName();
+        $pictureFile3 = $request->file('picture3');
+        $pictureName3 = $pictureFile3->getClientOriginalName();
         Portfolio::create([
             'name' => $request->name,
             'description' => $request->description,
             'website' => $request->website,
-            'picture' => $pictureName
+            'picture' => $pictureName,
+            'picture2' => $pictureName2,
+            'picture3' => $pictureName3
         ]);
         $pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
+        $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+        $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
 
         return redirect(route('portfolios.index'));
         //
@@ -100,6 +108,20 @@ class PortfolioController extends Controller
             if($portfolio->picture != $pictureName || $pictureName != null){
                 $portfolio->picture = $pictureName;
                 $pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
+            }
+        }
+        if($pictureFile2 = $request->file('picture2')){
+            $pictureName2 = $pictureFile2->getClientOriginalName();
+            if($portfolio->picture2 != $pictureName2 || $pictureName2 != null){
+                $portfolio->picture2 = $pictureName2;
+                $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+            }
+        }
+        if($pictureFile3 = $request->file('picture3')){
+            $pictureName3 = $pictureFile3->getClientOriginalName();
+            if($portfolio->picture3 != $pictureName3 || $pictureName3 != null){
+                $portfolio->picture3 = $pictureName3;
+                $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
             }
         }
         $portfolio->save();

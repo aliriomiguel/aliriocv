@@ -42,6 +42,28 @@
         </div>
     </div>
     <div class="form-group">
+        <label>Current Picture2</label>
+        <img class="avatar" src="/img/portfolio_pictures/{{$portfolio->picture2}}" alt="portfolio_image">
+    </div>
+    <div class="form-group">
+        <label>Change Picture2</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture2" name="picture2">
+            <label class="custom-file-label" for="picture2">Choose File</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Current Picture3</label>
+        <img class="avatar" src="/img/portfolio_pictures/{{$portfolio->picture3}}" alt="portfolio_image">
+    </div>
+    <div class="form-group">
+        <label>Change Picture3</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture3" name="picture3">
+            <label class="custom-file-label" for="picture3">Choose File</label>
+        </div>
+    </div>
+    <div class="form-group">
         <button type="submit" class="btn btn-outline-info">Update portfolio</button>
     </div>
 </form>

@@ -16,6 +16,12 @@
         {{-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}        
         <link href="{{ asset('assets/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/freelancer.min.css">
+        <style>
+            .center-image{
+                display:block;
+                margin:auto;
+            }
+        </style>    
         {{-- <style>
             html, body {
                 background-color: #fff;
