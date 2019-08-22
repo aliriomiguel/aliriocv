@@ -7,6 +7,7 @@ use App\Post;
 use App\Portfolio;
 use App\Quotes;
 use App\About;
+use App\Service;
 
 class WelcomeController extends Controller
 {
@@ -14,8 +15,8 @@ class WelcomeController extends Controller
         $posts = Post::all();
         $about = About::all();
         $portfolio = Portfolio::all();
-
-        return view('welcome', compact('posts','about','portfolio'));
+        $services = Service::all();
+        return view('welcome', compact('posts','about','portfolio','services'));
     }
     //
 }
