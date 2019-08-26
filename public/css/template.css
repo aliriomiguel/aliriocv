@@ -10,7 +10,9 @@ html,body{
     min-height:100%;
     position:relative;
 }
-
+.profile-pic{
+    border-radius: 50%;
+}
 .main{
     overflow:auto;
     padding-bottom: 240px;

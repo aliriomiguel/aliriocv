@@ -18,34 +18,50 @@
         <link rel="stylesheet" href="/css/freelancer.min.css">
         <style>
             .center-image{
-                display:block;
-                margin:auto;
+              display:block;
+              margin:auto;
+            }            
+            .profile-pic{
+              border-radius: 50%;
+            }
+            .back-img{
+              background-image: url('/img/backgrounds/164622.jpg');
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+            .name-prof{
+              width:75%;
+              background-color: rgba(44,62,80, 0.8);
             }
         </style>
     </head>
     <body id="page-top">
-            <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-                    <div class="container">
-                      <a class="navbar-brand js-scroll-trigger" href="#page-top">Alirio's Resume</a>
-                      <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu
-                        <i class="fas fa-bars"></i>
-                      </button>
-                      <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                          <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
-                          </li>
-                          <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
-                          </li>
-                          <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </nav>
+      <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">Alirio's Resume</a>
+          <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skills">Skills</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
             
                 {{-- @if (Route::has('login'))
                     <div class="top-right links">
@@ -62,35 +78,40 @@
                 @endif --}}
 
             <!-- Masthead -->
-            <header class="masthead bg-primary text-white text-center">
-                    <div class="container d-flex align-items-center flex-column">
-                
-                    <!-- Masthead Avatar Image -->
-                    <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
-                
-                    <!-- Masthead Heading -->
-                    <h1 class="masthead-heading text-uppercase mb-0">Alirio Aranguren</h1>
-                
-                    <!-- Icon Divider -->
-                    <div class="divider-custom divider-light">
-                        <div class="divider-custom-line"></div>
-                        <div class="divider-custom-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="divider-custom-line"></div>
-                    </div>
-                
-                    <!-- Masthead Subheading -->
-                    <p class="masthead-subheading font-weight-light mb-0">Web Developer</p>
-                
-                    </div>
-            </header>
-
-            <div class="container-fluid "> 
-                <div class="main container">
-                        @yield('welcome_content')
-                </div>               
+      <header class="masthead {{-- bg-primary --}} back-img text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+    
+        <!-- Masthead Avatar Image -->
+        <img class="masthead-avatar mb-5 profile-pic" src="img/profile300x300.png" alt="">
+    
+        <!-- Masthead Heading -->
+        <div class="name-prof">
+            <h1 class="masthead-heading text-uppercase mb-0">Alirio Aranguren</h1>
+    
+            <!-- Icon Divider -->
+            <div class="divider-custom divider-light">
+                {{-- <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                </div> --}}
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-line"></div>
             </div>
+        
+            <!-- Masthead Subheading -->
+            <p class="masthead-subheading font-weight-light mb-0"> <b>Web Developer</b> </p>
+        </div>
+        
+    
+        </div>
+      </header>
+
+      <div class="container-fluid "> 
+        <div class="main container">
+                @yield('welcome_content')
+        </div>               
+      </div>
 
             {{-- <div class="content">
                 <div class="title m-b-md">
@@ -107,6 +128,53 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div> --}}
+      <!-- Footer -->
+      <footer class="footer text-center">
+        <div class="container">
+          <div class="row">
+
+            <!-- Footer Location -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+              <h4 class="text-uppercase mb-4">Location</h4>
+              <p class="lead mb-0">Jesus Maestro #33
+                <br>Mirador Norte, Santo Domingo
+                <br>Dominican Republic, PC 10114</p>
+            </div>
+
+            <!-- Footer Social Icons -->
+            <div class="col-lg-4 mb-5 mb-lg-0">
+              <h4 class="text-uppercase mb-4">Around the Web</h4>
+              <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/aliriomiguel" target="_blank">
+                <i class="fab fa-fw fa-facebook-f"></i>
+              </a>
+              <a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/alirio_miguel" target="_blank">
+                <i class="fab fa-fw fa-twitter"></i>
+              </a>
+              <a class="btn btn-outline-light btn-social mx-1" href="#" target="_blank">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+              </a>
+              {{-- <a class="btn btn-outline-light btn-social mx-1" href="#">
+                <i class="fab fa-fw fa-dribbble"></i>
+              </a> --}}
+            </div>
+
+            <!-- Footer About Text -->
+            {{-- <div class="col-lg-4">
+              <h4 class="text-uppercase mb-4">About Freelancer</h4>
+              <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by
+                <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+            </div> --}}
+
+          </div>
+        </div>
+      </footer>
+
+      <!-- Copyright Section -->
+      <section class="copyright py-4 text-center text-white">
+        <div class="container">
+          <small>Copyright &copy; Alirio Aranguren 2019</small>
+        </div>
+      </section>
 
     <!-- Bootstrap core JavaScript -->
     <script src="/assets/jquery/jquery.min.js"></script>

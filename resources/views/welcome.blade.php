@@ -8,9 +8,7 @@
         <!-- Icon Divider -->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon">
-            <i class="fas fa-star"></i>
-            </div>
+            <div class="divider-custom-line"></div>
             <div class="divider-custom-line"></div>
         </div>
         <div class="row">
@@ -84,9 +82,7 @@
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About Me</h2>
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon">
-                <i class="fas fa-star"></i>
-                </div>
+                <div class="divider-custom-line"></div>
                 <div class="divider-custom-line"></div>
             </div>
             <div class="row">
@@ -104,9 +100,7 @@
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Skills</h2>
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                    </div>
+                    <div class="divider-custom-line"></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <div class="row">
@@ -135,9 +129,7 @@
             <!-- Icon Divider -->
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon">
-                <i class="fas fa-star"></i>
-                </div>
+                <div class="divider-custom-line"></div>
                 <div class="divider-custom-line"></div>
             </div>
             <div class="content col-lg-8 mx-auto">
@@ -170,7 +162,9 @@
                     </div>
                     <br>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-xl"><i class="fas fa-envelope"></i> Send</button>
+                        <div class="col-xs-1 text-center">
+                            <button type="submit" class="btn btn-primary btn-xl"><i class="fas fa-envelope"></i> Send</button>
+                        </div>
                     </div>
                 </form>
             </div>
