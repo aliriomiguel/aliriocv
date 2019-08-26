@@ -25,7 +25,7 @@
                                     Category
                                 </th>
                                 <th>
-                                    Show on Landing Page
+                                    Featured on Landing Page
                                 </th>
                                 <th>
                                     Actions

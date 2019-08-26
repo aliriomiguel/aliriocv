@@ -21,6 +21,16 @@
         <div>
             <span>Date:</span> {{$post->created_at->formatLocalized('%d %B %Y %I:%M')}}{{$post->created_at->format('a')}}    
         </div>
+        <div>
+            <label for="picture">Picture:</label>
+            <br>
+            <img src="/img/posts_pictures/{{$post->picture}}" style="width:100%;" alt="posts_image">
+        </div>
+        <div>
+            <label for="picture">Picture:</label>
+            <br>
+            <img src="/img/posts_pictures/{{$post->picture2}}" style="width:100%;" alt="posts_image">
+        </div>
 
     </div>
 </div>

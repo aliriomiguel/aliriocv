@@ -73,101 +73,147 @@
                 <!-- End Portfolio Modal -->
             @endforeach
         </div>
-        
     </div>
 </section>
 
 <section class="page-section about" id="about">
     <div class="container">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About Me</h2>
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <div class="row">
-                @foreach($about as $ab)
-                    @if($ab->active_text == 1)
-                        <p class="mb-5 text-center">{{$ab->about}}</p>
-                    @endif    
-                @endforeach
-            </div>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About Me</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            @foreach($about as $ab)
+                @if($ab->active_text == 1)
+                    <p class="mb-5 text-center">{{$ab->about}}</p>
+                @endif    
+            @endforeach
+        </div>
     </div>
 </section>
 
 <section class="page-section skills" id="skills">
-        <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Skills</h2>
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <div class="row">
-                    @foreach($services as $service)
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-50 w-50">
-                                <div class="portfolio-item-caption-content text-center text-white">
-                                    <i class="fas fa-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img class="img-fluid center-image" src="img/icons/{{$service->icon}}" style="width:50%;">
-                            <h2 class="text-center">{{$service->name}}</h2>
-                            <p class="text-center">{!!$service->description!!}</p>
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Skills</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            @foreach($services as $service)
+            <div class="col-md-6 col-lg-4">
+                <div class="portfolio-item mx-auto">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-50 w-50">
+                        <div class="portfolio-item-caption-content text-center text-white">
+                            <i class="fas fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    @endforeach
+                    <img class="img-fluid center-image" src="img/icons/{{$service->icon}}" style="width:50%;">
+                    <h2 class="text-center">{{$service->name}}</h2>
+                    <p class="text-center">{!!$service->description!!}</p>
                 </div>
+            </div>
+            @endforeach
         </div>
+    </div>
+</section>
+
+<section class="page-section" id="posts">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Blog</h2>
+        <!-- Icon Divider -->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            {{--Featured--}}
+            @foreach($posts as $post)
+                @if($post->featured == 1)
+                <div class="card bg-dark text-white" style="width:100%;">
+                    <img src="img/posts_pictures/{{$post->picture}}" class="card-img" alt="BlogImage{{$post->id}}">
+                    <div class="card-img-overlay name-featured">
+                        <h2 class="card-title">{{$post->title}}</h2>
+                        <p class="card-text ">{{ str_limit($post->content, $limit = 150, $end = '...') }}<br><a class="left" href="/showpost/{{$post->id}}">read more.</a></p>
+                        <p class="card-text">Updated at {{$post->updated_at->formatLocalized('%d %B %Y')}}</p>
+                    </div>
+                </div>
+                @endif
+            @endforeach
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            {{--Normal--}}
+            <div class="card-group">
+                @foreach($posts as $post)
+                    @if($post->featured == 0)
+                        <div class="card">
+                            <img class="card-img-top" src="img/posts_pictures/{{$post->picture}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$post->title}}</h5>
+                                <p class="card-text">{{ str_limit($post->content, $limit = 20, $end = '...') }}</p>
+                                <p class="card-text"><small class="text-muted">Updated at {{$post->updated_at->formatLocalized('%d %B %Y')}}</small></p>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach        
+            </div>
+        </div>
+    </div>   
 </section>
 
 <section class="page-section" id="contact">
     <div class="container">
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
 
-            <!-- Icon Divider -->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <div class="content col-lg-8 mx-auto">
-        
-                <form action="{{route('contacts.store')}}"  method="post">
-                    @csrf
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                        </div>
+        <!-- Icon Divider -->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="content col-lg-8 mx-auto">
+    
+            <form action="{{route('contacts.store')}}"  method="post">
+                @csrf
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
                     </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
-                        </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
                     </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label for="phone">Phone</label>
-                            <input type="phone" name="phone" id="phone" class="form-control" placeholder="Phone">
-                        </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label for="phone">Phone</label>
+                        <input type="phone" name="phone" id="phone" class="form-control" placeholder="Phone">
                     </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            <label for="content">Text</label>
-                            <textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                        </div>
+                </div>
+                <div class="control-group">
+                    <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                        <label for="content">Text</label>
+                        <textarea name="content" id="content" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
                     </div>
-                    <br>
-                    <div class="form-group">
-                        <div class="col-xs-1 text-center">
-                            <button type="submit" class="btn btn-primary btn-xl"><i class="fas fa-envelope"></i> Send</button>
-                        </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-xs-1 text-center">
+                        <button type="submit" class="btn btn-primary btn-xl"><i class="fas fa-envelope"></i> Send</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
     </div>
     
 </section>

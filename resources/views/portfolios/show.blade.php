@@ -20,7 +20,7 @@
         <div>
             <label for="picture">Picture:</label>
             <br>
-            <img src="/img/portfolio_pictures/{{$portfolio->picture}}" alt="portfolio_image">
+            <img src="/img/portfolio_pictures/{{$portfolio->picture}}"  alt="portfolio_image">
         </div>
     </div>
 </div>

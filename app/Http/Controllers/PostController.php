@@ -51,16 +51,25 @@ class PostController extends Controller
             'title' => 'required|min:3',
             'content' => 'required|min:10',
             'author' => 'min:3',
-            'category' => 'required'
+            'category' => 'required',
+            'picture' => 'max:10240|mimes:png,jpg,jpeg'
         ]);
+        $pictureFile = $request->file('picture');
+        $pictureName = $pictureFile->getClientOriginalName();
+        $pictureFile2 = $request->file('picture2');
+        $pictureName2 = $pictureFile2->getClientOriginalName();
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'author' => $request->author,
             'featured' => 0,
             'category_id' => $request->category,
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
+            'picture' => $pictureName,
+            'picture2' => $pictureName2
         ]);
+        $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
+        $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
         return redirect(route('posts.index'));
         //
     }
@@ -101,6 +110,20 @@ class PostController extends Controller
     {
         $post->title = $request->title;
         $post->content = $request->content;
+        if($pictureFile = $request->file('picture')){
+            $pictureName = $pictureFile->getClientOriginalName();
+            if($post->picture != $pictureName || $pictureName != null){
+                $post->picture = $pictureName;
+                $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
+            }
+        }
+        if($pictureFile2 = $request->file('picture2')){
+            $pictureName2 = $pictureFile2->getClientOriginalName();
+            if($post->picture2 != $pictureName2 || $pictureName2 != null){
+                $post->picture2 = $pictureName2;
+                $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
+            }
+        }
         $post->save();
         session()->flash('message','Your post have been updated');
         return redirect()->back();

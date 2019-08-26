@@ -34,6 +34,11 @@
               width:75%;
               background-color: rgba(44,62,80, 0.8);
             }
+            .name-featured{
+              width:25%;
+              /* height:30%; */
+              background-color: rgba(44,62,80, 0.8);
+            }
         </style>
     </head>
     <body id="page-top">
@@ -54,6 +59,9 @@
               </li>
               <li class="nav-item mx-0 mx-lg-1">
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skills">Skills</a>
+              </li>
+              <li class="nav-item mx-0 mx-lg-1">
+                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#posts">Blog</a>
               </li>
               <li class="nav-item mx-0 mx-lg-1">
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>

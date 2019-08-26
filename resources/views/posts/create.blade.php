@@ -8,7 +8,7 @@
         @endforeach
     </div>
 @endif
-<form action="{{route('posts.store')}}" method="post">
+<form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title">Title</label>
@@ -29,6 +29,20 @@
                 <option name="category" value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
+    </div>
+    <div class="form-group">
+        <label>Picture</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture" name="picture">
+            <label class="custom-file-label" for="picture">Choose File</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Picture 2</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="picture2" name="picture2">
+            <label class="custom-file-label" for="picture2">Choose File</label>
+        </div>
     </div>
     <div class="form-group">
         <button type="submit" class="btn btn-outline-info">Add a post</button>
