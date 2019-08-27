@@ -36,7 +36,7 @@
               background-color: rgba(44,62,80, 0.8);
             }
             .name-featured{
-              width:25%;
+              width:33%;
               background-color: rgba(44,62,80, 0.8);
             }
         </style>

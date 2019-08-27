@@ -134,7 +134,7 @@
             {{--Featured--}}
             @foreach($posts as $post)
                 @if($post->featured == 1)
-                <div class="card bg-dark text-white" style="width:100%;">
+                <div class="card bg-dark text-white" style="width:100%; margin-bottom:16px;">
                     <img src="img/posts_pictures/{{$post->picture}}" class="card-img" alt="BlogImage{{$post->id}}">
                     <div class="card-img-overlay name-featured">
                         <h2 class="card-title">{{$post->title}}</h2>
@@ -145,7 +145,6 @@
                 @endif
             @endforeach
         </div>
-        <br>
         <hr>
         <br>
         <div class="row">
