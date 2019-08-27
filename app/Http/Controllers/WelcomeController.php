@@ -25,7 +25,7 @@ class WelcomeController extends Controller
         return view('welcome', compact('posts','about','portfolio','services'));
     }
     //
-    public static function showLandingPost($post){
-        return view('landingPosts.show', compact($post));
+    public function showLandingPost(Post $post){
+        return view('landingPosts.show', compact('post'));
     }
 }

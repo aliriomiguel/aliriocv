@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <link rel="shortcut icon" href="{{ asset('/img/favicon.png') }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -36,7 +37,6 @@
             }
             .name-featured{
               width:25%;
-              /* height:30%; */
               background-color: rgba(44,62,80, 0.8);
             }
         </style>
@@ -44,7 +44,7 @@
     <body id="page-top">
       <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top">Alirio's Resume</a>
+          <a class="navbar-brand js-scroll-trigger" href="/"{{-- #page-top --}}>Alirio's Resume</a>
           <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -90,7 +90,7 @@
         <div class="container d-flex align-items-center flex-column">
     
         <!-- Masthead Avatar Image -->
-        <img class="masthead-avatar mb-5 profile-pic" src="img/profile300x300.png" alt="">
+        <img class="masthead-avatar mb-5 profile-pic" src="/img/profile300x300.png" alt="">
     
         <!-- Masthead Heading -->
         <div class="name-prof">

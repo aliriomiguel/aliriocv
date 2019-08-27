@@ -20,7 +20,7 @@
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid center-image" src="img/portfolio_pictures/{{$pentry->picture}}" alt="portfolioPicture">
+                        <img class="img-fluid center-image" src="img/portfolio_pictures/{{$pentry->picture}}" style="width:100%;" alt="portfolioPicture">
                     </div>
                 </div>
 
@@ -157,7 +157,7 @@
                             <img class="card-img-top" src="img/posts_pictures/{{$post->picture}}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">{{$post->title}}</h5>
-                                <p class="card-text">{{ str_limit($post->content, $limit = 20, $end = '...') }}</p>
+                                <p class="card-text">{{ str_limit($post->content, $limit = 20, $end = '...') }} <a class="left" href="/showpost/{{$post->id}}">read more.</a></p>
                                 <p class="card-text"><small class="text-muted">Updated at {{$post->updated_at->formatLocalized('%d %B %Y')}}</small></p>
                             </div>
                         </div>
