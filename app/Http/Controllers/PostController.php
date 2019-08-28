@@ -57,7 +57,13 @@ class PostController extends Controller
         $pictureFile = $request->file('picture');
         $pictureName = $pictureFile->getClientOriginalName();
         $pictureFile2 = $request->file('picture2');
-        $pictureName2 = $pictureFile2->getClientOriginalName();
+        if($pictureFile2){
+            $pictureName2 = $pictureFile2->getClientOriginalName();
+        }
+        else{
+            $pictureName2 = null;
+        }
+        
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
@@ -69,7 +75,10 @@ class PostController extends Controller
             'picture2' => $pictureName2
         ]);
         $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
-        $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
+        if($pictureFile2){
+            $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
+        }
+        
         return redirect(route('posts.index'));
         //
     }

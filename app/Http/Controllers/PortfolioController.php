@@ -47,10 +47,23 @@ class PortfolioController extends Controller
         ]);
         $pictureFile = $request->file('picture');
         $pictureName = $pictureFile->getClientOriginalName();
+        
         $pictureFile2 = $request->file('picture2');
-        $pictureName2 = $pictureFile2->getClientOriginalName();
+        if($pictureFile2){
+            $pictureName2 = $pictureFile2->getClientOriginalName();
+        }
+        else{
+            $pictureName2 = null;
+        }
+
         $pictureFile3 = $request->file('picture3');
-        $pictureName3 = $pictureFile3->getClientOriginalName();
+        if($pictureFile3){
+            $pictureName3 = $pictureFile3->getClientOriginalName();    
+        }
+        else{
+            $pictureName3 = null;
+        }
+        
         Portfolio::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -60,8 +73,12 @@ class PortfolioController extends Controller
             'picture3' => $pictureName3
         ]);
         $pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
-        $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
-        $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
+        if($pictureFile2){
+            $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+        }
+        if($pictureFile3){
+            $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
+        }
 
         return redirect(route('portfolios.index'));
         //

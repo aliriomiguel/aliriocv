@@ -26,11 +26,13 @@
             <br>
             <img src="/img/posts_pictures/{{$post->picture}}" style="width:100%;" alt="posts_image">
         </div>
+        @if($post->picture2)
         <div>
             <label for="picture">Picture:</label>
             <br>
             <img src="/img/posts_pictures/{{$post->picture2}}" style="width:100%;" alt="posts_image">
         </div>
+        @endif
 
     </div>
 </div>

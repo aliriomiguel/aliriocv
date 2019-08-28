@@ -87,7 +87,7 @@
         <div class="row">
             @foreach($about as $ab)
                 @if($ab->active_text == 1)
-                    <p class="mb-5 text-center">{{$ab->about}}</p>
+                    <p class="mb-5 text-center">{!!$ab->about!!}</p>
                 @endif    
             @endforeach
         </div>

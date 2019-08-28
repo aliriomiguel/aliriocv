@@ -36,6 +36,6 @@ Route::resource('quotes','QuotesController');
 Route::resource('contacts','ContactController');
 Route::resource('categories','CategoryController');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

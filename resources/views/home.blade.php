@@ -16,6 +16,7 @@
 
                     You are logged in!
                 </div>
+                <a class="btn btn-primary" href="{{route('dashboard.index')}}">Go to Dashboard!</a>
             </div>
         </div>
     </div>
