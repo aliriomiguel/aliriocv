@@ -42,9 +42,7 @@
                                 <!-- Icon Divider -->
                                 <div class="divider-custom">
                                 <div class="divider-custom-line"></div>
-                                <div class="divider-custom-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
+                                <div class="divider-custom-line"></div>
                                 <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
@@ -52,7 +50,7 @@
                                 <!-- Portfolio Modal - Text -->
                                 <p class="mb-5 text-left">{!! $pentry->description !!}</p>
                                 {{-- <button class="btn btn-info" href="{{$pentry->website}}">{{$pentry->website}}</button> --}}
-                                <p><a href="https://{{$pentry->website}}">{{$pentry->website}}</a></p>
+                                <p><a href="https://{{$pentry->website}}" target="_blank">{{$pentry->website}}</a></p>
                                 @if($pentry->picture2)
                                 <img class="img-fluid rounded mb-5" src="img/portfolio_pictures/{{$pentry->picture2}}">
                                 @endif
@@ -121,6 +119,7 @@
     </div>
 </section>
 
+@if($posts->count() > 0)
 <section class="page-section" id="posts">
     <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Blog</h2>
@@ -166,7 +165,7 @@
         </div>
     </div>   
 </section>
-
+@endif
 <section class="page-section" id="contact">
     <div class="container">
         <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>

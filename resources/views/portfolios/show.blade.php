@@ -8,7 +8,7 @@
         <div>
             <label for="description">Description:</label>
             <p>
-                {{$portfolio->description}}
+                {!!$portfolio->description!!}
             </p>
         </div>
         <div>

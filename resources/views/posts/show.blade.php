@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
         <p>
-            {{$post->content}}
+            {!!$post->content!!}
         </p>
         
         <div>
