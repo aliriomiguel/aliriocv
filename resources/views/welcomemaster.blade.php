@@ -15,7 +15,7 @@
         <!-- Styles -->
         
         {{-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}        
-        <link href="{{ asset('assets/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('/assets/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/freelancer.min.css">
         <style>
             .center-image{
@@ -121,22 +121,6 @@
         </div>               
       </div>
 
-            {{-- <div class="content">
-                <div class="title m-b-md">
-                    Alirio Aranguren 
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div> --}}
-      <!-- Footer -->
       <footer class="footer text-center">
         <div class="container">
           <div class="row">
@@ -161,9 +145,6 @@
               <a class="btn btn-outline-light btn-social mx-1" href="#" target="_blank">
                 <i class="fab fa-fw fa-linkedin-in"></i>
               </a>
-              {{-- <a class="btn btn-outline-light btn-social mx-1" href="#">
-                <i class="fab fa-fw fa-dribbble"></i>
-              </a> --}}
             </div>
 
             <!-- Footer About Text -->
@@ -192,6 +173,6 @@
     <script src="/assets/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/freelancer.js"></script>
+    <script src="/js/freelancer.js"></script>
     </body>
 </html>

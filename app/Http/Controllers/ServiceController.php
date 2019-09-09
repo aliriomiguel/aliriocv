@@ -51,7 +51,10 @@ class ServiceController extends Controller
             'description' => $request->description,
             'icon' => $iconName
         ]);
-        $iconFile->move(base_path().'/public/img/icons',$iconName);
+        $destinationPath = base_path().'/img/icons';
+        dd($destinationPath);
+        //Storage::disk('icons')->put($iconName,$iconFile);
+        $iconFile->storeAs('/../aliriocv/img/icons/',$iconName);
 
         return redirect(route('services.index'));
 
