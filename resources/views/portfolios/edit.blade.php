@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
         <label>Current Picture</label>
-        <img class="avatar" src="/img/portfolio_pictures/{{$portfolio->picture}}" alt="portfolio_image">
+        <img class="avatar" src="/storage/img/portfolio_pictures/{{$portfolio->picture}}" alt="portfolio_image">
     </div>
     <div class="form-group">
         <label>Change Picture</label>
@@ -43,7 +43,7 @@
     </div>
     <div class="form-group">
         <label>Current Picture2</label>
-        <img class="avatar" src="/img/portfolio_pictures/{{$portfolio->picture2}}" alt="portfolio_image">
+        <img class="avatar" src="/storage/img/portfolio_pictures/{{$portfolio->picture2}}" alt="portfolio_image">
     </div>
     <div class="form-group">
         <label>Change Picture2</label>
@@ -54,7 +54,7 @@
     </div>
     <div class="form-group">
         <label>Current Picture3</label>
-        <img class="avatar" src="/img/portfolio_pictures/{{$portfolio->picture3}}" alt="portfolio_image">
+        <img class="avatar" src="/storage/img/portfolio_pictures/{{$portfolio->picture3}}" alt="portfolio_image">
     </div>
     <div class="form-group">
         <label>Change Picture3</label>

@@ -55,13 +55,21 @@ class PostController extends Controller
             'picture' => 'max:10240|mimes:png,jpg,jpeg'
         ]);
         $pictureFile = $request->file('picture');
-        $pictureName = $pictureFile->getClientOriginalName();
+        $fileNameWithExt = $pictureFile->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('picture')->getClientOriginalExtension();
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
         $pictureFile2 = $request->file('picture2');
         if($pictureFile2){
-            $pictureName2 = $pictureFile2->getClientOriginalName();
+            /* $pictureName2 = $pictureFile2->getClientOriginalName(); */
+            $fileNameWithExt2 = $pictureFile2->getClientOriginalName();
+            $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+            $extension2 = $request->file('picture2')->getClientOriginalExtension();
+            $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
         }
         else{
-            $pictureName2 = null;
+            $fileNameToStore2 = null;
         }
         
         Post::create([
@@ -71,13 +79,19 @@ class PostController extends Controller
             'featured' => 0,
             'category_id' => $request->category,
             'user_id' => auth()->user()->id,
-            'picture' => $pictureName,
-            'picture2' => $pictureName2
+            'picture' => $fileNameToStore,
+            'picture2' => $fileNameToStore2
         ]);
-        $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
+        $path = $request->file('picture')->storeAs('/public/img/posts_pictures', $fileNameToStore);
+        //$pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
+        if($pictureFile2){
+            $path = $request->file('picture2')->storeAs('/public/img/posts_pictures', $fileNameToStore2);
+            //$pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+        }
+        /* $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
         if($pictureFile2){
             $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
-        }
+        } */
         
         return redirect(route('posts.index'));
         //
@@ -119,20 +133,31 @@ class PostController extends Controller
     {
         $post->title = $request->title;
         $post->content = $request->content;
+
         if($pictureFile = $request->file('picture')){
-            $pictureName = $pictureFile->getClientOriginalName();
-            if($post->picture != $pictureName || $pictureName != null){
-                $post->picture = $pictureName;
-                $pictureFile->move(base_path().'/public/img/posts_pictures',$pictureName);
+            $fileNameWithExt = $pictureFile->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            if($post->picture != $fileNameToStore || $fileNameToStore != null){
+
+                $post->picture = $fileNameToStore;
+                $path = $request->file('picture')->storeAs('/public/img/posts_pictures', $fileNameToStore);
             }
         }
+
         if($pictureFile2 = $request->file('picture2')){
-            $pictureName2 = $pictureFile2->getClientOriginalName();
-            if($post->picture2 != $pictureName2 || $pictureName2 != null){
-                $post->picture2 = $pictureName2;
-                $pictureFile2->move(base_path().'/public/img/posts_pictures',$pictureName2);
+            $fileNameWithExt2 = $pictureFile2->getClientOriginalName();
+            $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+            $extension2 = $request->file('picture2')->getClientOriginalExtension();
+            $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
+            if($post->picture2 != $fileNameToStore2 || $fileNameToStore2 != null){
+
+                $post->picture2 = $fileNameToStore2;
+                $path = $request->file('picture')->storeAs('/public/img/posts_pictures', $fileNameToStore2);
             }
         }
+
         $post->save();
         session()->flash('message','Your post have been updated');
         return redirect()->back();

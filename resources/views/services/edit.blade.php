@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
         <label>Current Icon</label>
-        <img class="avatar" src="/img/icons/{{$service->icon}}" alt="service_image">
+        <img class="avatar" src="/storage/img/icons/{{$service->icon}}" alt="service_image">
     </div>
     <div class="form-group">
         <label>Change Icon</label>

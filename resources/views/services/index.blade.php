@@ -42,7 +42,7 @@
                                 {{-- <a href="{{route('services.show', $service->id)}}">
                                     {{ str_limit($service->service, $limit = 40, $end = '...') }}
                                 </a> --}}
-                                <img class="avatar" src="/img/icons/{{$service->icon}}" alt="service_image">
+                                <img class="avatar" src="/storage/img/icons/{{$service->icon}}" alt="service_image">
                             </td>
                             <td>
                                 <a href="{{route('services.show', $service->id)}}">

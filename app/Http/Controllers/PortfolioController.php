@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,38 +49,53 @@ class PortfolioController extends Controller
             'picture' => 'required|max:10240|mimes:png,jpg,jpeg'
         ]);
         $pictureFile = $request->file('picture');
-        $pictureName = $pictureFile->getClientOriginalName();
-        
+        $fileNameWithExt = $pictureFile->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('picture')->getClientOriginalExtension();
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
         $pictureFile2 = $request->file('picture2');
         if($pictureFile2){
-            $pictureName2 = $pictureFile2->getClientOriginalName();
+            /* $pictureName2 = $pictureFile2->getClientOriginalName(); */
+            $fileNameWithExt2 = $pictureFile2->getClientOriginalName();
+            $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+            $extension2 = $request->file('picture2')->getClientOriginalExtension();
+            $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
         }
         else{
-            $pictureName2 = null;
+            $fileNameToStore2 = null;
         }
 
         $pictureFile3 = $request->file('picture3');
         if($pictureFile3){
-            $pictureName3 = $pictureFile3->getClientOriginalName();    
+            /* $pictureName2 = $pictureFile2->getClientOriginalName(); */
+            $fileNameWithExt3 = $pictureFile3->getClientOriginalName();
+            $filename3 = pathinfo($fileNameWithExt3, PATHINFO_FILENAME);
+            $extension3 = $request->file('picture3')->getClientOriginalExtension();
+            $fileNameToStore3 = $filename3.'_'.time().'.'.$extension3;
         }
         else{
-            $pictureName3 = null;
+            $fileNameToStore3 = null;
         }
         
         Portfolio::create([
             'name' => $request->name,
             'description' => $request->description,
             'website' => $request->website,
-            'picture' => $pictureName,
-            'picture2' => $pictureName2,
-            'picture3' => $pictureName3
+            'picture' => $fileNameToStore,
+            'picture2' => $fileNameToStore2,
+            'picture3' => $fileNameToStore3
         ]);
-        $pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
+
+        $path = $request->file('picture')->storeAs('/public/img/portfolio_pictures', $fileNameToStore);
+        //$pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
         if($pictureFile2){
-            $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+            $path = $request->file('picture2')->storeAs('/public/img/portfolio_pictures', $fileNameToStore2);
+            //$pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
         }
         if($pictureFile3){
-            $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
+            $path = $request->file('picture3')->storeAs('/public/img/portfolio_pictures', $fileNameToStore3);
+            //$pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
         }
 
         return redirect(route('portfolios.index'));
@@ -120,25 +138,39 @@ class PortfolioController extends Controller
         $portfolio->name = $request->name;
         $portfolio->description = $request->description;
         $portfolio->website = $request->website;
+
         if($pictureFile = $request->file('picture')){
-            $pictureName = $pictureFile->getClientOriginalName();
-            if($portfolio->picture != $pictureName || $pictureName != null){
-                $portfolio->picture = $pictureName;
-                $pictureFile->move(base_path().'/public/img/portfolio_pictures',$pictureName);
+            $fileNameWithExt = $pictureFile->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            if($portfolio->picture != $fileNameToStore || $fileNameToStore != null){
+
+                $portfolio->picture = $fileNameToStore;
+                $path = $request->file('picture')->storeAs('/public/img/portfolio_pictures', $fileNameToStore);
             }
         }
+
         if($pictureFile2 = $request->file('picture2')){
-            $pictureName2 = $pictureFile2->getClientOriginalName();
-            if($portfolio->picture2 != $pictureName2 || $pictureName2 != null){
-                $portfolio->picture2 = $pictureName2;
-                $pictureFile2->move(base_path().'/public/img/portfolio_pictures',$pictureName2);
+            $fileNameWithExt2 = $pictureFile2->getClientOriginalName();
+            $filename2 = pathinfo($fileNameWithExt2, PATHINFO_FILENAME);
+            $extension2 = $request->file('picture2')->getClientOriginalExtension();
+            $fileNameToStore2 = $filename2.'_'.time().'.'.$extension2;
+            if($portfolio->picture2 != $fileNameToStore2 || $fileNameToStore2 != null){
+
+                $portfolio->picture2 = $fileNameToStore2;
+                $path = $request->file('picture2')->storeAs('/public/img/portfolio_pictures', $fileNameToStore2);
             }
         }
         if($pictureFile3 = $request->file('picture3')){
-            $pictureName3 = $pictureFile3->getClientOriginalName();
-            if($portfolio->picture3 != $pictureName3 || $pictureName3 != null){
-                $portfolio->picture3 = $pictureName3;
-                $pictureFile3->move(base_path().'/public/img/portfolio_pictures',$pictureName3);
+            $fileNameWithExt3 = $pictureFile3->getClientOriginalName();
+            $filename3 = pathinfo($fileNameWithExt3, PATHINFO_FILENAME);
+            $extension3 = $request->file('picture3')->getClientOriginalExtension();
+            $fileNameToStore3 = $filename3.'_'.time().'.'.$extension3;
+            if($portfolio->picture3 != $fileNameToStore3 || $fileNameToStore3 != null){
+
+                $portfolio->picture3 = $fileNameToStore3;
+                $path = $request->file('picture3')->storeAs('/public/img/portfolio_pictures', $fileNameToStore3);
             }
         }
         $portfolio->save();

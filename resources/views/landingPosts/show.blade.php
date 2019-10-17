@@ -19,13 +19,13 @@
 
             <hr>
 
-            <img class="img-fluid rounded" src="/img/posts_pictures/{{$post->picture}}" alt="">
+            <img class="img-fluid rounded" src="/storage/img/posts_pictures/{{$post->picture}}" alt="">
 
             <hr>
 
             <p>{{$post->content}}</p>
             @if($post->picture2)
-                <img class="img-fluid rounded" src="/img/posts_pictures/{{$post->picture2}}" alt="">
+                <img class="img-fluid rounded" src="/storage/img/posts_pictures/{{$post->picture2}}" alt="">
             @endif
             <hr>
 

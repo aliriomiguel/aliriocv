@@ -6,7 +6,7 @@
         <p>
             {{$service->description}}
         </p>
-        <img src="/img/icons/{{$service->icon}}" alt="service_image">
+        <img src="/storage/img/icons/{{$service->icon}}" alt="service_image">
     </div>
 </div>
 @stop

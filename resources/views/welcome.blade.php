@@ -20,7 +20,7 @@
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid center-image" src="img/portfolio_pictures/{{$pentry->picture}}" style="width:100%;" alt="portfolioPicture">
+                        <img class="img-fluid center-image" src="/storage/img/portfolio_pictures/{{$pentry->picture}}" style="width:100%;" alt="portfolioPicture">
                     </div>
                 </div>
 
@@ -46,16 +46,16 @@
                                 <div class="divider-custom-line"></div>
                                 </div>
                                 <!-- Portfolio Modal - Image -->
-                                <img class="img-fluid rounded mb-5" src="img/portfolio_pictures/{{$pentry->picture}}" alt="portfolioPicture">
+                                <img class="img-fluid rounded mb-5" src="/storage/img/portfolio_pictures/{{$pentry->picture}}" alt="portfolioPicture">
                                 <!-- Portfolio Modal - Text -->
                                 <p class="mb-5 text-left">{!! $pentry->description !!}</p>
                                 {{-- <button class="btn btn-info" href="{{$pentry->website}}">{{$pentry->website}}</button> --}}
                                 <p><a href="https://{{$pentry->website}}" target="_blank">{{$pentry->website}}</a></p>
                                 @if($pentry->picture2)
-                                <img class="img-fluid rounded mb-5" src="img/portfolio_pictures/{{$pentry->picture2}}">
+                                <img class="img-fluid rounded mb-5" src="/storage/img/portfolio_pictures/{{$pentry->picture2}}">
                                 @endif
                                 @if($pentry->picture3)
-                                <img class="img-fluid rounded mb-5" src="img/portfolio_pictures/{{$pentry->picture3}}">
+                                <img class="img-fluid rounded mb-5" src="/storage/img/portfolio_pictures/{{$pentry->picture3}}">
                                 @endif
                                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                                 <i class="fas fa-times fa-fw"></i>
@@ -109,7 +109,7 @@
                             <i class="fas fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid center-image" src="img/icons/{{$service->icon}}" style="width:50%;">
+                    <img class="img-fluid center-image" src="/storage/img/icons/{{$service->icon}}" style="width:50%;">
                     <h2 class="text-center">{{$service->name}}</h2>
                     <p class="text-center">{!!$service->description!!}</p>
                 </div>
@@ -134,7 +134,7 @@
             @foreach($posts as $post)
                 @if($post->featured == 1)
                 <div class="card bg-dark text-white" style="width:100%; margin-bottom:16px;">
-                    <img src="img/posts_pictures/{{$post->picture}}" class="card-img" alt="BlogImage{{$post->id}}">
+                    <img src="/storage/img/posts_pictures/{{$post->picture}}" class="card-img" alt="BlogImage{{$post->id}}">
                     <div class="card-img-overlay name-featured">
                         <h2 class="card-title">{{$post->title}}</h2>
                         <p class="card-text ">{{ str_limit($post->content, $limit = 150, $end = '...') }}<br><a class="left" href="/showpost/{{$post->id}}">read more.</a></p>
@@ -152,7 +152,7 @@
                 @foreach($posts as $post)
                     @if($post->featured == 0)
                         <div class="card">
-                            <img class="card-img-top" src="img/posts_pictures/{{$post->picture}}" alt="Card image cap">
+                            <img class="card-img-top" src="/storage/img/posts_pictures/{{$post->picture}}" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">{{$post->title}}</h5>
                                 <p class="card-text">{{ str_limit($post->content, $limit = 20, $end = '...') }} <a class="left" href="/showpost/{{$post->id}}">read more.</a></p>

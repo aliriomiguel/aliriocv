@@ -38,23 +38,24 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         $this->validate($request,[
             'name' => 'required|min:3',
             'description' => 'required|min:10',
             'icon' => 'required|max:10240|mimes:png,jpg,jpeg'
         ]);
+        
         $iconFile = $request->file('icon');
-        $iconName = $iconFile->getClientOriginalName();
+        $fileNameWithExt = $iconFile->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('icon')->getClientOriginalExtension();
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;     
+
         Service::create([
             'name' => $request->name,
             'description' => $request->description,
-            'icon' => $iconName
+            'icon' => $fileNameToStore
         ]);
-        $destinationPath = base_path().'/img/icons';
-        dd($destinationPath);
-        //Storage::disk('icons')->put($iconName,$iconFile);
-        $iconFile->storeAs('/../aliriocv/img/icons/',$iconName);
+        $path = $request->file('icon')->storeAs('/public/img/icons', $fileNameToStore);
 
         return redirect(route('services.index'));
 
@@ -96,13 +97,19 @@ class ServiceController extends Controller
     {
         $service->name = $request->name;
         $service->description = $request->description;
+
         if($iconFile = $request->file('icon')){
-            $iconName = $iconFile->getClientOriginalName();
-            if($service->icon != $iconName || $iconName != null){
-                $service->icon = $iconName;
-                $iconFile->move(base_path().'/public/img/icons',$iconName);
+            $fileNameWithExt = $iconFile->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('icon')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            if($service->icon != $fileNameToStore || $fileNameToStore != null){
+
+                $service->icon = $fileNameToStore;
+                $path = $request->file('icon')->storeAs('/public/img/icons', $fileNameToStore);
             }
         }
+
         $service->save();
         session()->flash('message','Your service has been updated');
         return redirect(route('services.index'));

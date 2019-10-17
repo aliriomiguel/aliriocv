@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
         <label>Current Picture</label>
-        <img class="avatar" src="/img/posts_pictures/{{$post->picture}}" alt="post_image">
+        <img class="avatar" src="/storage/img/posts_pictures/{{$post->picture}}" alt="post_image">
     </div>
     <div class="form-group">
         <label>Change Picture</label>
@@ -50,7 +50,7 @@
     </div>
     <div class="form-group">
         <label>Current Picture2</label>
-        <img class="avatar" src="/img/posts_pictures/{{$post->picture2}}" alt="post_image">
+        <img class="avatar" src="/storage/img/posts_pictures/{{$post->picture2}}" alt="post_image">
     </div>
     <div class="form-group">
         <label>Change Picture2</label>

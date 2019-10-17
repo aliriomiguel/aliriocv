@@ -20,20 +20,20 @@
         <div>
             <label for="picture">Picture:</label>
             <br>
-            <img src="/img/portfolio_pictures/{{$portfolio->picture}}" width="300px" alt="portfolio_image">
+            <img src="/storage/img/portfolio_pictures/{{$portfolio->picture}}" width="300px" alt="portfolio_image">
         </div>
         @if($portfolio->picture2)
         <div>
             <label for="picture">Picture:</label>
             <br>
-            <img src="/img/portfolio_pictures/{{$portfolio->picture2}}" width="300px" alt="portfolio_image">
+            <img src="/storage/img/portfolio_pictures/{{$portfolio->picture2}}" width="300px" alt="portfolio_image">
         </div>
         @endif
         @if($portfolio->picture3)
         <div>
             <label for="picture">Picture:</label>
             <br>
-            <img src="/img/portfolio_pictures/{{$portfolio->picture3}}" width="300px" alt="portfolio_image">
+            <img src="/storage/img/portfolio_pictures/{{$portfolio->picture3}}" width="300px" alt="portfolio_image">
         </div>
         @endif
     </div>
