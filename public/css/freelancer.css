@@ -10562,7 +10562,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 .page-section .page-section-heading {
@@ -10738,9 +10738,6 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 1.25rem;
 }
 
-.masthead .masthead-avatar {
-  width: 15rem;
-}
 
 @media (min-width: 992px) {
   .masthead {
@@ -10748,11 +10745,11 @@ a.text-dark:hover, a.text-dark:focus {
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
-    font-size: 4rem;
-    line-height: 3.5rem;
+    font-size: 3rem;
+    align-self: center;
   }
   .masthead .masthead-subheading {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -10813,7 +10810,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 .floating-label-form-group {
   position: relative;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 3px solid #2c3e50;
+  border-radius: 15px;
 }
 
 .floating-label-form-group input,
@@ -10829,6 +10827,7 @@ a.text-dark:hover, a.text-dark:focus {
   background: none;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+  padding-left: 15px;
 }
 
 .floating-label-form-group label {

@@ -14,31 +14,12 @@
 
         <!-- Styles -->
         
-        {{-- <link rel="stylesheet" href="/css/bootstrap.css"> --}}        
         <link href="{{ asset('/assets/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="/css/freelancer.min.css">
+        <link rel="stylesheet" href="/css/styles/style.css">
+
         <style>
-            .center-image{
-              display:block;
-              margin:auto;
-            }            
-            .profile-pic{
-              border-radius: 50%;
-            }
-            .back-img{
-              background-image: url('/img/backgrounds/164622.jpg');
-              background-size: cover;
-              background-position: center;
-              background-repeat: no-repeat;
-            }
-            .name-prof{
-              width:75%;
-              background-color: rgba(44,62,80, 0.8);
-            }
-            .name-featured{
-              width:33%;
-              background-color: rgba(44,62,80, 0.8);
-            }
+            
         </style>
     </head>
     <body id="page-top">
@@ -59,9 +40,6 @@
               </li>
               <li class="nav-item mx-0 mx-lg-1">
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skills">Skills</a>
-              </li>
-              <li class="nav-item mx-0 mx-lg-1">
-                <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#posts">Blog</a>
               </li>
               <li class="nav-item mx-0 mx-lg-1">
                 <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
@@ -126,7 +104,7 @@
           <div class="row">
 
             <!-- Footer Location -->
-            <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="col-lg-6 mb-5 mb-lg-0">
               <h4 class="text-uppercase mb-4">Location</h4>
               <p class="lead mb-0">Jesus Maestro #33
                 <br>Mirador Norte, Santo Domingo
@@ -134,7 +112,7 @@
             </div>
 
             <!-- Footer Social Icons -->
-            <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="col-lg-6 mb-lg-0 aling-self-center">
               <h4 class="text-uppercase mb-4">Around the Web</h4>
               <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/aliriomiguel" target="_blank">
                 <i class="fab fa-fw fa-facebook-f"></i>

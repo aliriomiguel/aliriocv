@@ -1,0 +1,83 @@
+
+@font-face {
+    font-family: "Luxia-Display";
+    src: url("Luxia/Luxia-Display.otf");
+  }
+
+@font-face {
+    font-family: 'roboto';
+    src: url("Roboto/Roboto-Regular.ttf"); 
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+h1, h2 , h3, h4, h5{
+    font-family: "Luxia-Display !important";
+}
+BODY{
+  font-family: "robot";
+}
+
+.center-image{
+  display:block;
+  margin:auto;
+}            
+.profile-pic{
+  width: 18rem;
+  border:2px solid;
+  border-radius: 10px;
+}
+.back-img{
+  background-image: url('/img/backgrounds/164622.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.name-featured{
+  width:33%;
+  background-color: rgba(44,62,80, 0.8);
+}
+
+.aling-self-center{
+  align-self: center;
+}
+
+.name-prof{
+  width:75%;
+  background-color: rgba(44,62,80, 0.8);
+  padding: 15px 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  border-radius: 10px;
+  .divider-custom{
+    margin: auto
+    }
+}
+p{
+  font-size: 20px;
+}
+
+//movil
+@media (max-width: 600px) {
+  .masthead .masthead-heading {
+    font-size: 18px;
+    line-height: 0;
+    align-self: center;
+  }
+
+  .name-prof{
+    width: 18rem;
+  }
+  .page-section{
+    padding: 30px 0;
+  }
+
+  .masthead {
+    padding-top: calc(30px + 74px);
+  }
+
+  .footer{
+    padding: 30px 0;
+  }
+}
