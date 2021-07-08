@@ -25,7 +25,7 @@ BODY{
 .profile-pic{
   width: 18rem;
   border:2px solid;
-  border-radius: 10px;
+  border-radius: 50%;
 }
 .back-img{
   background-image: url('/img/backgrounds/164622.jpg');
@@ -58,6 +58,19 @@ p{
   font-size: 20px;
 }
 
+.img-skills{
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: .5px solid #f3f3f3;
+  box-shadow: 0 3px 3px #11111129;
+}
+.img-project{
+  width: 70%;
+  margin-top: 30px;
+  border: .5px solid #f3f3f3;
+  box-shadow: 0 3px 3px #11111129;
+}
+
 //movil
 @media (max-width: 600px) {
   .masthead .masthead-heading {
@@ -69,10 +82,7 @@ p{
   .name-prof{
     width: 18rem;
   }
-  .page-section{
-    padding: 30px 0;
-  }
-
+  
   .masthead {
     padding-top: calc(30px + 74px);
   }
